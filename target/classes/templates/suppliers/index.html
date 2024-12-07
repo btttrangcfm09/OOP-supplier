@@ -13,8 +13,12 @@
 <body>
 	<div class="container">
 		<h1 class="text-center my-4">Suppliers</h1>
-
-		<a class="btn btn-primary" href="/suppliers/create">Create Supplier</a>
+	<!-- Form tìm kiếm -->
+	<form class="d-flex mb-3" method="get" action="/suppliers/search">
+		<input class="form-control me-2" type="text" name="keyword" placeholder="Search suppliers..." aria-label="Search">
+		<button class="btn btn-outline-success" type="submit">Search</button>
+	</form>
+		<a class="btn btn-primary mb-3" href="/suppliers/create">Create Supplier</a>
 
 		<table class="table">
 			<thead>
@@ -23,6 +27,8 @@
 					<th>Name</th>
 					<th>Address</th>
 					<th>Description</th>
+					<th>Phone</th>
+					<th>Email</th>
 					<th>Created At</th>
 					<th>Updated At</th>
 					<th>Brand Logo</th>
@@ -35,13 +41,15 @@
 					<td th:text="${supplier.name}"></td>
 					<td th:text="${supplier.address}"></td>
 					<td th:text="${supplier.description}"></td>
+					<td th:text="${supplier.phone}"></td>
+					<td th:text="${supplier.email}"></td>
 					<td th:text="${#dates.format(supplier.createdAt, 'yyyy-MM-dd')}"></td>
 					<td th:text="${#dates.format(supplier.updatedAt, 'yyyy-MM-dd')}"></td>
 					<td>
 						<img th:src="@{'/imageLogo/' + ${supplier.imageLogo}}"
-							alt="..." width="100">
+							alt="Brand Logo" width="100">
 					</td>
-					<td style="white-space:nowrap">
+					<td>
 						<a class="btn btn-primary btn-sm"
 							th:href="@{/suppliers/edit(id=${supplier.id})}">Edit</a> 
 						<a class="btn btn-danger btn-sm"

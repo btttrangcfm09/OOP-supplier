@@ -26,7 +26,6 @@
 					</div>
 
 
-				<form method="post" enctype="multipart/form-data" th:object="${supplierDto}">
 					<div class="row mb-3">
 						<label class="col-sm-4 col-form-label">Name</label>
 						<div class="col-sm-8">
@@ -58,7 +57,27 @@
 						</div>
 					</div>
 
-
+					<div class="row mb-3">
+						<label class="col-sm-4 col-form-label">Phone</label>
+						<div class="col-sm-8">
+							<textarea class="form-control"
+								th:field="${supplierDto.phone}"></textarea>
+							<p th:if="${#fields.hasErrors('phone')}"
+								th:errorclass="text-danger"
+								th:errors="${supplierDto.phone}"></p>
+						</div>
+					</div>
+					
+					<div class="row mb-3">
+						<label class="col-sm-4 col-form-label">Email</label>
+						<div class="col-sm-8">
+							<textarea class="form-control"
+								th:field="${supplierDto.email}"></textarea>
+							<p th:if="${#fields.hasErrors('email')}"
+								th:errorclass="text-danger"
+								th:errors="${supplierDto.email}"></p>
+						</div>
+					</div>					
 					<div class="row mb-3">
 						<label class="col-sm-4 col-form-label">Created At</label>
 						<div class="col-sm-8">
